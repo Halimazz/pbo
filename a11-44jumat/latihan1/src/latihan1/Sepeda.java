@@ -8,7 +8,7 @@ package latihan1;
  *
  * @author D2A
  */
-public class Sepeda {
+public class Sepeda{
     int kepatan;
     int gigi;
     
