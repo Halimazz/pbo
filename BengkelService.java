@@ -1,35 +1,23 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BengkelService {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        ArrayList<Integer> pilihan = new ArrayList<Integer>();
+        int pilihan = 0;
         double totalHarga = 0;
-
-        while (true) {
+        
+        while (pilihan != 6) {
             System.out.println("Pilihan Bengkel:");
             System.out.println("1. Service Mesin");
             System.out.println("2. Service AC");
             System.out.println("3. Service Kelistrikan");
             System.out.println("4. Service Pengereman");
             System.out.println("5. Service Check UP");
-            System.out.println("6. Selesai");
+            System.out.println("6. Exit");
             System.out.print("Pilihan : ");
-            int opsi = input.nextInt();
+            pilihan = input.nextInt();
 
-            if (opsi == 6) {
-                break;
-            } else if (opsi < 1 || opsi > 6) {
-                System.out.println("Pilihan tidak valid!");
-                continue;
-            }
-
-            else if (!pilihan.contains(opsi)) {
-                pilihan.add(opsi);
-            }
-            
-            switch (opsi) {
+            switch (pilihan) {
                 case 1:
                 case 2:
                 case 3:
@@ -45,15 +33,23 @@ public class BengkelService {
                     } else {
                         totalHarga += 150000;
                     }
+                    System.out.println("Biaya service: " + totalHarga);
                     break;
 
                 case 5:
-                    totalHarga += 1200000;
+                    totalHarga = 1200000;
+                    System.out.println("Biaya service: " + totalHarga);
+                    break;
+
+                case 6:
+                    System.out.println("Keluar Program");
+                    break;
+
+                default:
+                    System.out.println("Pilihan tidak valid!");
                     break;
             }
         }
-
-        System.out.println("Total biaya service: " + totalHarga);
         input.close();
     }
 }
