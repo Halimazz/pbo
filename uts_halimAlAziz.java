@@ -29,7 +29,7 @@ public class uts_halimAlAziz {
 
         while(pilihan !=5){
             System.out.println(" Menu Penjualan Tiket");
-            System.out.println("1. Pesaat");
+            System.out.println("1. Pesawat");
             System.out.println("2. Kapal Laut");
             System.out.println("3. kereta Api");
             System.out.println("4. Hitung Biaya");
