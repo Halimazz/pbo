@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Musik</title>
+    <style>
+      /* CSS untuk tampilan web */
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Web Musik</h1>
+    <button onclick="playMusic()">Play Music</button>
+    <button onclick="stopMusic()">Stop Music</button>
+    <p id="clock"></p>
+    <script>
+      setInterval(customClock, 500);
+      function customClock() {
+        var time = new Date();
+        var hrs = time.getHours();
+        var min = time.getMinutes();
+        var sec = time.getSeconds();
+
+        document.getElementById("clock").innerHTML =
+          hrs + ":" + min + ":" + sec;
+      }
+    </script>
+
+    <script>
+      // JavaScript untuk mengontrol musik
+      var audio = new Audio("Yoasobi.mp3"); // Ganti 'path/ke/file/musik.mp3' dengan path file musik yang ingin digunakan
+
+      function playMusic() {
+        audio.play();
+      }
+
+      function stopMusic() {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+
+      // Menetapkan waktu untuk memainkan musik
+      var playTime = new Date();
+      playTime.setHours(1); // Ganti dengan waktu yang diinginkan (dalam format 24 jam)
+      playTime.setMinutes(0);
+      playTime.setSeconds(0);
+
+      var currentTime = new Date();
+      var timeToPlay = playTime - currentTime;
+
+      if (timeToPlay > 0) {
+        setTimeout(function (timeToPlay) {
+          playMusic();
+        }, timeToPlay);
+      }
+      //   function playMusic() {
+      //   var audio = new Audio('path_to_your_audio_file.mp3');
+      //   audio.play();
+      // }
+
+      // function scheduleMusic(timeToPlay) {
+      //   var currentTime = new Date().getTime();
+      //   var delay = timeToPlay - currentTime;
+
+      //   if (delay > 0) {
+      //     setTimeout(function() {
+      //       playMusic();
+      //     }, delay);
+      //   }
+      // }
+    </script>
+  </body>
+</html>
