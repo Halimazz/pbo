@@ -30,7 +30,7 @@
 
     <script>
       // JavaScript untuk mengontrol musik
-      var audio = new Audio("Yoasobi.mp3"); // Ganti 'path/ke/file/musik.mp3' dengan path file musik yang ingin digunakan
+      var audio = new Audio("ultah.mp3"); // Ganti 'path/ke/file/musik.mp3' dengan path file musik yang ingin digunakan
 
       function playMusic() {
         audio.play();
@@ -43,9 +43,9 @@
 
       // Menetapkan waktu untuk memainkan musik
       var playTime = new Date();
-      playTime.setHours(1); // Ganti dengan waktu yang diinginkan (dalam format 24 jam)
+      playTime.setHours(0); // Ganti dengan waktu yang diinginkan (dalam format 24 jam)
       playTime.setMinutes(0);
-      playTime.setSeconds(0);
+      playTime.setSeconds(5);
 
       var currentTime = new Date();
       var timeToPlay = playTime - currentTime;
@@ -70,6 +70,7 @@
       //     }, delay);
       //   }
       // }
+      // 1.trigger detik 2.js dasar 3.console.log
     </script>
   </body>
 </html>
