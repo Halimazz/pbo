@@ -123,5 +123,21 @@ public class Shape {
             return super.toString();
         }
     }
+
+    public static void main(String[] args){
+        Shape shape = new Shape();
+        Shape.Circle circle = shape.new Circle();
+        Shape.Rectangle rectangle = shape.new Rectangle();
+        Shape.Square square = shape.new Square();
+        System.out.println("Circle");
+        System.out.println("Luas : " + circle.getArea(78));
+        System.out.println("Keliling : " + circle.getPerimeter(33));
+        System.out.println("Rectangle");
+        System.out.println("Luas : " + rectangle.getArea(53));
+        System.out.println("Keliling : " + rectangle.getPerimeter(45));
+        System.out.println("Square");
+        System.out.println("Luas : " + square.getArea(75));
+        System.out.println("Keliling : " + square.getPerimeter(23));
+    }
     
 }
