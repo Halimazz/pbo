@@ -14,7 +14,6 @@ public class Calculator_frame extends javax.swing.JFrame {
     int pilih;  
     public Calculator_frame() {
         initComponents();
-        angka="";
     }
 
     /**
