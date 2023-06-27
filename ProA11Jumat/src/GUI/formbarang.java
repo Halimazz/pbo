@@ -5,7 +5,10 @@
 package GUI;
 
 import java.awt.event.KeyEvent;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +21,7 @@ public class formbarang extends javax.swing.JFrame {
      */
     public formbarang() {
         initComponents();
+        table();
     }
 
     /**
@@ -91,6 +95,11 @@ public class formbarang extends javax.swing.JFrame {
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 65, -1, -1));
 
         xsatbrg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kilo", "Meter", "Lusin", "Gross", "Botol", "Liter", "Kilo", "Doz", "Pcs", "Sacet", " " }));
+        xsatbrg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xsatbrgActionPerformed(evt);
+            }
+        });
         jPanel2.add(xsatbrg, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 62, 104, -1));
 
         jLabel5.setText("Jumlah");
@@ -162,6 +171,37 @@ public class formbarang extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnexitMouseClicked
 
+    private void table(){
+    DefaultTableModel tbl = new DefaultTableModel();
+    tbl.addColumn("id");
+    tbl.addColumn("Nama Barang");
+    tbl.addColumn("Satuan");
+    tbl.addColumn("jumlah");
+    tbl.addColumn("harga");
+        
+    try{
+        Statement stm =(Statement) KoneksiDb.getConn().createStatement();
+        ResultSet rs =stm.executeQuery("SELECT * FROM tb_toko");
+       while (rs.next()) {
+           tbl.addRow(new Object[]{
+           rs.getInt("id"),
+           rs.getString("nama"),
+               rs.getString("satuan"),
+               rs.getInt("jumlah"),
+                rs.getInt("harga")
+               
+           });
+            jTable1.setModel(tbl);
+       }
+       
+        JOptionPane.showMessageDialog(null,"koneksi database berhasil");
+    }
+    catch(Exception e){
+                JOptionPane.showMessageDialog(null,"koneksi database gagal" + e.getMessage());
+
+    }
+    
+    }
     private void xkdbrgKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xkdbrgKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode()==KeyEvent.VK_ENTER)
@@ -178,6 +218,10 @@ public class formbarang extends javax.swing.JFrame {
             xkdbrg.requestFocus();
         }
     }//GEN-LAST:event_xnmbrgFocusGained
+
+    private void xsatbrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xsatbrgActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_xsatbrgActionPerformed
 
     /**
      * @param args the command line arguments
