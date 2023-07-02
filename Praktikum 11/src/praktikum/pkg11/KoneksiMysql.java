@@ -11,6 +11,7 @@ package praktikum.pkg11;
 import java.sql.*;
 public class KoneksiMysql {
     String url, usr, pwd, dbn;
+    Statement createStatment;
     public KoneksiMysql (String dbn) {
         this.url = "jdbc:mysql://localhost/" + dbn;
         this.usr = "root";
@@ -38,7 +39,7 @@ public Connection getConnection() {
 }
 
     public static void main (String args[]) {
-        KoneksiMysql kon = new KoneksiMysql ("barang");
+        KoneksiMysql kon = new KoneksiMysql ("penjualan2");
         Connection c = kon.getConnection();
    }
 }

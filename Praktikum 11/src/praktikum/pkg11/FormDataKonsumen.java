@@ -1,3 +1,5 @@
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -20,7 +22,6 @@ public class FormDataKonsumen extends javax.swing.JFrame {
     Connection Con;
     ResultSet RsKons;
     Statement stm;
-    
     String sSatuan;
     Boolean edit = false;
     
@@ -434,9 +435,9 @@ public class FormDataKonsumen extends javax.swing.JFrame {
         try{
             if(edit==true)
             {
-                stm.executeUpdate("update konsumen set nm_kons='"+tNama+"',alamat='"+tAlamat+"',kota='"+tKota+"',kode pos='"+tKodePos+"',telepon='"+tPhone+"',email='"+tEmail+" where kd_kons='"+tKode+"'");
+                stm.executeUpdate("update konsumen set nm_kons='"+tNama+"',alm_kons='"+tAlamat+"',kota_kons='"+tKota+"',kd_pos='"+tKodePos+"',telepon='"+tPhone+"',email='"+tEmail+" where kd_kons='"+tKode+"'");
             }else{
-                stm.executeUpdate("INSERT into konsumen VALUES('"+tKode+"','"+tNama+"','"+tAlamat+"','"+tKota+"','"+tKodePos+"','"+tPhone+"','"+tEmail+"')");
+                stm.executeUpdate("insert into konsumen(`kd_kons`, `nm_kons`, `alm_kons`, `kota_kons`, `kd_pos`, `phone`, `email`) VALUES('"+tKode+"','"+tNama+"','"+tAlamat+"','"+tKota+"','"+tKodePos+"','"+tPhone+"','"+tEmail+"')");
             }
             tblKons.setModel(new DefaultTableModel(dataTable, header));
             baca_data();
